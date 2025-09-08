@@ -1,0 +1,28 @@
+{
+  "name": "patlabor-landing-page",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/otaviozerotwo/patlabor-landing-page#readme",
+  "bugs": {
+    "url": "https://github.com/otaviozerotwo/patlabor-landing-page/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otaviozerotwo/patlabor-landing-page.git"
+  },
+  "license": "ISC",
+  "author": "Otávio Cardoso",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp watch",
+    "build": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^6.0.1",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.92.1"
+  }
+}

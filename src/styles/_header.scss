@@ -1,0 +1,61 @@
+@use 'variables';
+
+@font-face {
+  font-family: RussoOne;
+  src: url(../../assets/fonts/RussoOne-Regular.ttf);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 0 24px;
+  background-color: variables.$bodyColor;
+  transition: background-color 0.5s ease;
+  z-index: 1;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    margin: 8px;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    
+    &__item {
+      list-style: none;
+      
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: RussoOne;
+        color: #FFF;
+        letter-spacing: 2px;
+
+        // &:hover {
+          
+        // }
+      }
+    }
+  }
+
+  &__social-media {
+    width: 198px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+      background-color: #FFF;
+      border-radius: 99px;
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
