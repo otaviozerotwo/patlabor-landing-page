@@ -7,3 +7,7 @@ A entrega deste exercício consiste em:
 • Publicar o projeto na Vercel;
 
 • Enviar o link através da plataforma.
+
+Referência:
+
+https://patlabor.tokyo/  
