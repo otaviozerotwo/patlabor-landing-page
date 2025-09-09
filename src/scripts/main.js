@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+  initHeroCarousel();
+  initScrollCarousel();
+});
+
+function initHeroCarousel() {
   const slides = document.querySelectorAll('.hero__item');
   let index = 0;
 
@@ -10,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
       showSlide(slides, index);
     }, 8000);
   }
-});
+}
 
 function showSlide(slides, i) {
   for (let j = 0; j < slides.length; j++) {
@@ -19,3 +24,18 @@ function showSlide(slides, i) {
 
   slides[i].classList.add('hero__item--is-active');
 }
+
+function initScrollCarousel() {
+  const track = document.querySelector('.carousel__track');
+  const prevBtn = document.querySelector('.carousel__btn--prev');
+  const nextBtn = document.querySelector('.carousel__btn--next');
+  const slideWidth = 498 + 30;
+
+  prevBtn.addEventListener('click', function() {
+    track.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', function() {
+    track.scrollBy({ left: slideWidth, behavior: 'smooth' });
+  });
+};

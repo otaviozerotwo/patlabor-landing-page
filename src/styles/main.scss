@@ -1,6 +1,7 @@
 @use 'variables';
 @use 'header';
 @use 'hero';
+@use 'carousel';
 
 @font-face {
   font-family: Roboto;
@@ -49,6 +50,10 @@ body {
 
 .title--big {
   @include title(64px);
+}
+
+.title--medium {
+  @include title(44px);
 }
 
 .text--medium {
