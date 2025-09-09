@@ -14,6 +14,11 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: RussoOne;
+  src: url(../../assets/fonts/RussoOne-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,5 +27,72 @@
 }
 
 body {
-  background-color: variables.$bodyColor;
+  background-color: variables.$bodyColorPrimary;
+}
+
+@mixin text($fontSize: 16px) {
+  font-size: $fontSize;
+  line-height: $fontSize + 10px;
+  color: variables.$colorTextPrimary;
+}
+
+@mixin title($fontSize: 40px) {
+  @include text($fontSize);
+  font-family: RussoOne;
+  color: variables.$colorTextPrimary;
+  font-style: italic;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 80px;
+  letter-spacing: 4px;
+}
+
+.title--big {
+  @include title(64px);
+}
+
+.text--medium {
+  @include text;
+}
+
+.about {
+  padding: 80px 0;
+
+  &__image {
+    max-width: 100%;
+  }
+}
+
+.image-text-container {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 0 30px;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+.movies {
+  padding: 80px 0;
+  background-color: variables.$bodyColorSecondary;
+
+  .title--big {
+    color: variables.$colorTextSecondary;
+  }
+}
+
+.characters {
+  padding: 80px 0;
+}
+
+.labors {
+  padding: 80px 0;
+  background-color: variables.$bodyColorSecondary;
+
+  .title--big {
+    color: variables.$colorTextSecondary;
+  }
 }
