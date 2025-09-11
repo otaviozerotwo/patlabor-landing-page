@@ -6,16 +6,16 @@
 
   &__logo {
     position: absolute;
-    top: calc(50% - 74px);
-    left: 30%;
-    translate: (-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1;
   }
 
   &__carousel {
     position: relative;
     overflow: hidden;
-    height: clamp(320px, 75vh, 900px);
+    height: 80vh;
   }
 
   &__item {

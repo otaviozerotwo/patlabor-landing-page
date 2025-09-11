@@ -10,17 +10,21 @@
   }
 
   &__track {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    // grid-template-columns: 1fr 1fr 1fr;
     scroll-behavior: smooth;
   }
   
   &__slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     min-width: 498px;
     margin-right: 30px;
     list-style: none;
 
-    iframe {
+    iframe, img {
       width: 100%;
       max-height: 498px;
       object-fit: cover;

@@ -9,8 +9,8 @@
   position: sticky;
   top: 0;
   left: 0;
-  padding: 0 24px;
-  background-color: variables.$bodyColorSecondary;
+  padding: 12px 24px;
+  background-color: rgba(13, 13, 13, 0.9);
   transition: background-color 0.5s ease;
   z-index: 3;
 
@@ -37,6 +37,7 @@
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
+    font-size: 18px;
     font-family: RussoOne;
     color: #FFF;
     letter-spacing: 2px;
@@ -71,8 +72,8 @@
     img {
       background-color: #FFF;
       border-radius: 99px;
-      width: 36px;
-      height: 36px;
+      width: 46px;
+      height: 46px;
     }
   }
 }
