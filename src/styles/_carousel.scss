@@ -4,6 +4,14 @@
   position: relative;
   overflow: hidden;
 
+  &--light {
+    color: variables.$colorTextPrimary;
+  }
+
+  &--dark {
+    color: variables.$colorTextSecondary;
+  }
+
   &__track-container {
     overflow: hidden;
     width: 100%;
@@ -12,7 +20,6 @@
   &__track {
     display: flex;
     flex-wrap: nowrap;
-    // grid-template-columns: 1fr 1fr 1fr;
     scroll-behavior: smooth;
   }
   
@@ -32,7 +39,6 @@
     }
 
     p {
-      color: variables.$colorTextSecondary;
       text-align: center;
       margin-bottom: 8px;
     }
