@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   initHeroCarousel();
-  initScrollCarousel();
+  initAllScrollCarousel();
 });
 
 function initHeroCarousel() {
@@ -25,17 +25,57 @@ function showSlide(slides, i) {
   slides[i].classList.add('hero__item--is-active');
 }
 
-function initScrollCarousel() {
-  const track = document.querySelector('.carousel__track');
-  const prevBtn = document.querySelector('.carousel__btn--prev');
-  const nextBtn = document.querySelector('.carousel__btn--next');
-  const slideWidth = 498 + 30;
+function initAllScrollCarousel() {
+  const carouselContainers = document.querySelectorAll('.carousel');
 
-  prevBtn.addEventListener('click', function() {
-    track.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+  carouselContainers.forEach(container => {
+    new ScrollCarousel(container);
   });
+}
 
-  nextBtn.addEventListener('click', function() {
-    track.scrollBy({ left: slideWidth, behavior: 'smooth' });
-  });
-};
+class ScrollCarousel {
+  constructor(container) {
+    this.track = container.querySelector('.carousel__track');
+    this.prevBtn = container.querySelector('.carousel__btn--prev');
+    this.nextBtn = container.querySelector('.carousel__btn--next');
+    this.slides = container.querySelectorAll('.carousel__slide');
+
+    if (!this.track || !this.prevBtn || !this.nextBtn || !this.slides.length === 0) {
+      console.log('Elementos do carousel não foram encontrados no container:', container);
+      return;
+    }
+
+    this.currentIndex = 0;
+
+    this.nextBtn.addEventListener('click', () => this.goToSlide(this.currentIndex + 1));
+    this.prevBtn.addEventListener('click', () => this.goToSlide(this.currentIndex - 1));
+  }
+
+  goToSlide(index) {
+    index = Math.max(0, Math.min(index, this.slides.length - 1));
+    this.slides[index].scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+    this.currentIndex = index;
+  }
+
+  initIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const newIndex = Array.from(this.slides).indexOf(entry.target);
+          if (newIndex !== -1) {
+            this.currentIndex = newIndex;
+          }
+        }
+      });
+    }, {
+      root: this.track,
+      threshold: 0.5
+    });
+  
+    this.slides.forEach(slide => observer.observe(slide));
+  }
+}

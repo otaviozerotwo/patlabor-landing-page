@@ -119,22 +119,4 @@ body {
     padding: 0 30px;
     text-align: center;
   }
-
-  &__btn-link {
-    position: relative;
-    width: 150px;
-    height: 170px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-
-    clip-path: polygon(
-      25% 5%, 75% 5%,
-      100% 50%,
-      75% 95%, 25% 95%,
-      0% 50%
-    );
-  }
 }
