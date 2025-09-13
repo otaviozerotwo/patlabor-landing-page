@@ -25,14 +25,6 @@ function showSlide(slides, i) {
   slides[i].classList.add('hero__item--is-active');
 }
 
-function initAllScrollCarousel() {
-  const carouselContainers = document.querySelectorAll('.carousel');
-
-  carouselContainers.forEach(container => {
-    new ScrollCarousel(container);
-  });
-}
-
 class ScrollCarousel {
   constructor(container) {
     this.track = container.querySelector('.carousel__track');
@@ -52,30 +44,20 @@ class ScrollCarousel {
   }
 
   goToSlide(index) {
-    index = Math.max(0, Math.min(index, this.slides.length - 1));
-    this.slides[index].scrollIntoView({
+    const newIndex = Math.max(0, Math.min(index, this.slides.length - 1));
+    this.currentIndex = newIndex;
+    this.slides[this.currentIndex].scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'center'
     });
-    this.currentIndex = index;
   }
+}
 
-  initIntersectionObserver() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const newIndex = Array.from(this.slides).indexOf(entry.target);
-          if (newIndex !== -1) {
-            this.currentIndex = newIndex;
-          }
-        }
-      });
-    }, {
-      root: this.track,
-      threshold: 0.5
-    });
-  
-    this.slides.forEach(slide => observer.observe(slide));
-  }
+function initAllScrollCarousel() {
+  const carouselContainers = document.querySelectorAll('.carousel');
+
+  carouselContainers.forEach(container => {
+    new ScrollCarousel(container);
+  });
 }

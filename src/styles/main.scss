@@ -2,6 +2,8 @@
 @use 'header';
 @use 'hero';
 @use 'carousel';
+@use 'about';
+@use 'shop';
 @use 'footer';
 
 @font-face {
@@ -41,7 +43,6 @@ body {
 @mixin title($fontSize: 40px) {
   @include text($fontSize);
   font-family: RussoOne;
-  color: variables.$colorTextPrimary;
   font-style: italic;
   text-transform: uppercase;
   text-align: center;
@@ -61,62 +62,17 @@ body {
   @include text;
 }
 
-.about {
+.section-carousel {
   padding: 80px 0;
   scroll-margin-top: 98px;
 
-  &__image {
-    max-width: 100%;
+  &--ligth {
+    background-color: variables.$bodyColorPrimary;
+    color: variables.$colorTextPrimary;
   }
-}
 
-.image-text-container {
-  max-width: 1020px;
-  margin: 0 auto;
-  padding: 0 30px;
-
-  &__content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-}
-
-.movies {
-  padding: 80px 0;
-  scroll-margin-top: 98px;
-  background-color: variables.$bodyColorSecondary;
-
-  .title--big {
+  &--dark {
+    background-color: variables.$bodyColorSecondary;
     color: variables.$colorTextSecondary;
-  }
-}
-
-.characters {
-  padding: 80px 0;
-  scroll-margin-top: 98px;
-}
-
-.labors {
-  padding: 80px 0;
-  scroll-margin-top: 98px;
-  background-color: variables.$bodyColorSecondary;
-
-  .title--big {
-    color: variables.$colorTextSecondary;
-  }
-}
-
-.shop {
-  padding: 80px 0;
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 1020px;
-    margin: 0 auto;
-    padding: 0 30px;
-    text-align: center;
   }
 }
