@@ -51,15 +51,19 @@ body {
 }
 
 .title--big {
-  @include title(64px);
-}
-
-.title--medium {
   @include title(44px);
+
+  @media (max-width: 1024px) {
+    @include title(36px)
+  }
 }
 
 .text--medium {
   @include text;
+}
+
+.text--big {
+  @include text(18px);
 }
 
 .section-carousel {

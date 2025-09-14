@@ -35,4 +35,17 @@
       pointer-events: auto;
     }
   }
+
+  @media (max-width: 1024px) {
+    &__carousel {
+      height: 60vh;
+    }
+
+    &__logo {
+      img {
+        width: 394px;
+        height: auto;
+      }
+    }
+  }
 }

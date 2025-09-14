@@ -108,8 +108,29 @@
   }
   
   @media (max-width: 1024px) {
-    &__links, 
+    &__container {
+      justify-content: flex-start;
+      gap: 64px;
+    }
+
+    &__logo {
+      width: 160px;
+    }
+
     &__social-media {
+      display: none;
+    }
+
+    &__link {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__container {
+      justify-content: space-between;
+    }
+    &__links {
       display: none;
     }
 
